@@ -1,0 +1,24 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+#    password: 123456
+    password: 502131
+    url: jdbc:mysql://127.0.0.1/sell?characterEncoding=utf-8&useSSL=false
+#    url: jdbc:mysql://192.168.2.175/sell?characterEncoding=utf-8&useSSL=false
+  jpa:
+    show-sql: true
+server:
+  context-path: /sell
+#logging:
+#  pattern:
+    #console代表控制台的日志格式   %d代表日志输出的日期   %mes代表日志的信息   %n代表换行
+#    console: "%d - %msg%n"
+    #把日志输出到本地磁盘中  path中默认的日志文件名为spring.log    file可以修改日志的名称
+  #  path: D:/var/log/tomcat/
+#  file: D:/var/log/tomcat/sell.log
+  #把系统默认的日志级别从info改成了debug
+#  level: debug
+  #指定LoggerTest类的日志级别为debug
+#  level:
+#    com.lhj.LoggerTest: debug
