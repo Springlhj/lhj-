@@ -109,6 +109,7 @@ public class ProductCategoryDaoTest {
                 }
             }
             return age;
+
         } catch (Exception e) {//兼容性更强,异常后返回数据
             return 0;
         }
