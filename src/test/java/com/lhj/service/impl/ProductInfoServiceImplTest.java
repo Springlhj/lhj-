@@ -63,4 +63,12 @@ public class ProductInfoServiceImplTest {
         ProductInfo product = pro.save(productInfo);
         Assert.assertNotNull(product);
     }
+    @Test
+    public void compare(){
+        Integer a = 11;
+        Long b = 11L;
+        if(a.equals(b)){
+
+        }
+    }
 }
