@@ -10,6 +10,7 @@ spring:
     show-sql: true
 server:
   context-path: /sell
+#application中配置的日志比较简单,实现的功能也比较少,所以一般使用xml文件配置日志
 #logging:
 #  pattern:
     #console代表控制台的日志格式   %d代表日志输出的日期   %mes代表日志的信息   %n代表换行

@@ -31,6 +31,7 @@ public class LoggerTest {
         log.debug("debug...");
         log.info("info....");
         log.error("error...");
+        log.warn("111");
     }
 
     //在日志中输出变量
@@ -39,6 +40,8 @@ public class LoggerTest {
         String name = "lhj";
         String password = "123456";
         //{}表示一个占位符 里面写什么都可以
+//        log.info("name"+name+"password:"+password);
+        //用占位符替换字符串拼接
         log.info("name: {},password: {}", name, password);
     }
 }
