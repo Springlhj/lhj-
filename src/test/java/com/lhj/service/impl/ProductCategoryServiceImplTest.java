@@ -23,6 +23,9 @@ public class ProductCategoryServiceImplTest {
         Assert.assertEquals(new Integer(1),one.getCategoryId());
     }
 
+    /**
+     * list的size不等于0的时候就通过
+     */
     @Test
     public void findAll() {
         List<ProductCategory> all = productCategoryService.findAll();
@@ -38,7 +41,7 @@ public class ProductCategoryServiceImplTest {
 
     @Test
     public void save() {
-        ProductCategory productCategory = new ProductCategory("男生专享",10);
+        ProductCategory productCategory = new ProductCategory("女生专享",9);
         ProductCategory save = productCategoryService.save(productCategory);
         Assert.assertNotNull(save);
     }

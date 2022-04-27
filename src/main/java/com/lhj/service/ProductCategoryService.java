@@ -11,8 +11,17 @@ import java.util.List;
  * @create: 2019-04-30 15:26
  **/
 public interface ProductCategoryService {
+    /**
+     * 查一个
+     * @param categoryId
+     * @return
+     */
     ProductCategory findOne(Integer categoryId);
 
+    /**
+     * 查所有
+     * @return
+     */
     List<ProductCategory> findAll();
 
     /**
@@ -22,5 +31,10 @@ public interface ProductCategoryService {
      */
     List<ProductCategory> findByCategoryTypeIn(List<Integer> categoryTypes);
 
+    /**
+     * 新增和更新都是save方法
+     * @param productCategory
+     * @return
+     */
     ProductCategory save(ProductCategory productCategory);
 }

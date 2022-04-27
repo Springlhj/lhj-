@@ -12,7 +12,7 @@ public enum ProductStatusEnum {
     DOWN(1,"下架")
     ;
     private Integer code;
-    //如果希望看的详情一些,就给它加另外一个字段
+
     private String message;
     /**
      * 枚举构造方法

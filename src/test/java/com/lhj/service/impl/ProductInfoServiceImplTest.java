@@ -48,14 +48,14 @@ public class ProductInfoServiceImplTest {
     }
 
     @Test
-    @Transactional
+//    @Transactional
     public void save() {
         ProductInfo productInfo = new ProductInfo();
         productInfo.setProductId("123457");
         productInfo.setProductName("皮皮虾2");
         productInfo.setProductPrice(new BigDecimal(3.2));
         productInfo.setProductStock(100);
-        productInfo.setProductDescription("很好喝的虾");
+        productInfo.setProductDescription("很好吃的虾");
         productInfo.setProductIcon("http://xxxx.jpg");
         productInfo.setProductStatus(ProductStatusEnum.DOWN.getCode());
         //类目编号

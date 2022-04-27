@@ -32,8 +32,8 @@ public class ProductCategoryDaoTest {
 //        category.setCategoryType(5);
 
         ProductCategory productCategory = new ProductCategory();
-        productCategory.setCategoryId(1);
-        productCategory.setCategoryName("热销榜");
+        productCategory.setCategoryId(2);
+        productCategory.setCategoryName("男生最爱");
         productCategory.setCategoryType(3);
         productCategoryDao.save(productCategory);
     }
@@ -42,23 +42,24 @@ public class ProductCategoryDaoTest {
      * 利用构造器构造对象进行保存
      */
     @Test
+    //让数据库保留干净数据的方法
     //在service中添加事物注解和在单元测试中添加事物注解是不一样的
     //以前在service中添加此注解,表示这个方法里面如果有抛出异常的话,那么它会回滚,就之前产生的数据它会帮你删除掉
     //在单元测试里面加这个事物注解就是完全的回滚了。所做的所有操作,做完后它就帮你回滚了
     @Transactional
     public void constructionTest(){
-        ProductCategory productCategory = new ProductCategory("lhj",9);
+        ProductCategory productCategory = new ProductCategory("女生最爱",3);
         ProductCategory result = productCategoryDao.save(productCategory);
         //判断是否成功  看result是否为空就行了
         Assert.assertNotNull(result);
         //不期望的       期望的   (不期望null,实际result)
-        Assert.assertNotEquals(null,result);
+//        Assert.assertNotEquals(null,result);
     }
 
     @Test
     public void findByCategoryTypeInList(){
         //用 asList 方法产生的 List 是固定大小的，这也就意味着任何改变其大小的操作都是不允许的
-        List<Integer> list = Arrays.asList(1,2);
+        List<Integer> list = Arrays.asList(1,3);
         List<ProductCategory> byCategoryTypeIn = productCategoryDao.findByCategoryTypeIn(list);
         Assert.assertNotEquals(0,byCategoryTypeIn.size());
     }
