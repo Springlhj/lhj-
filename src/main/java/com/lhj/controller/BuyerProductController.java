@@ -65,6 +65,7 @@ public class BuyerProductController {
             for (ProductInfo productInfo : productInfoList) {
                 if(productInfo.getCategoryType().equals(productCategory.getCategoryType())){
                     ProductInfoVo productInfoVo = new ProductInfoVo();
+                    //把productInfo中的属性copy至productInfoVo
                     BeanUtils.copyProperties(productInfo,productInfoVo);
                     productInfoVoList.add(productInfoVo);
                 }
