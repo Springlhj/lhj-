@@ -35,7 +35,7 @@ public class OrderDetailDaoTest {
 
     @Test
     public void findByOrOrderId() {
-        List<OrderDetail> byOrOrderId = orderDetailDao.findByOrOrderId("111111");
+        List<OrderDetail> byOrOrderId = orderDetailDao.findByOrderId("111111");
         Assert.assertNotEquals(0,byOrOrderId.size());
     }
 }

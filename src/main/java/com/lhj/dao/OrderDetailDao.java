@@ -16,5 +16,5 @@ public interface OrderDetailDao extends JpaRepository<OrderDetail,String> {
      * @param orderId
      * @return
      */
-    List<OrderDetail> findByOrOrderId(String orderId);
+    List<OrderDetail> findByOrderId(String orderId);
 }
