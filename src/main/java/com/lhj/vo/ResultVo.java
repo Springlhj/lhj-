@@ -1,5 +1,6 @@
 package com.lhj.vo;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 
 /**
@@ -8,6 +9,7 @@ import lombok.Data;
  * @author lhj on 2022/4/26
  */
 @Data
+//@JsonInclude(JsonInclude.Include.NON_NULL)
 public class ResultVo<T> {
     /**
      * 错误码

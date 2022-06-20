@@ -75,9 +75,10 @@ public class OrderServiceImpl implements OrderService {
 
         //3.写入订单数据库(orderMaster和orderDetail)
         OrderMaster orderMaster = new OrderMaster();
+        orderDTO.setOrderId(orderId);
         //copy时注意:如果copy的对象属性中有为null的 被copy的对象该属性也会为null
         BeanUtils.copyProperties(orderDTO,orderMaster);
-        orderMaster.setOrderId(orderId);
+//        orderMaster.setOrderId(orderId);
         orderMaster.setOrderAmount(orderAmount);
         orderMaster.setOrderStatus(OrderStatusEnum.NEW.getCode());
         orderMaster.setPayStatus(PayStatusEnum.WAIT.getCode());
@@ -89,7 +90,7 @@ public class OrderServiceImpl implements OrderService {
                 .collect(Collectors.toList());
         productService.decreaseStock(cartDTOList);
 
-        return null;
+        return orderDTO;
     }
 
     @Override

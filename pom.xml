@@ -58,6 +58,11 @@
             <artifactId>best-pay-sdk</artifactId>
             <version>1.3.4-SNAPSHOT</version>
         </dependency>
+        <!--gson-->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

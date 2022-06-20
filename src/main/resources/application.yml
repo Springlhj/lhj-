@@ -5,9 +5,12 @@ spring:
     password: 123456
 #    password: Lhj5021314!.
 #    url: jdbc:mysql://127.0.0.1/jpatest?characterEncoding=utf-8&useSSL=false
-    url: jdbc:mysql://172.17.2.75/sell?characterEncoding=utf-8&useSSL=false
+    url: jdbc:mysql://10.60.250.151/sell?characterEncoding=utf-8&useSSL=false
   jpa:
     show-sql: true
+  #对全局返回页面的对象中 空值 进行统一处理 不返回
+  jackson:
+    default-property-inclusion: non_null
 server:
   #接口请求前缀
   context-path: /sell
