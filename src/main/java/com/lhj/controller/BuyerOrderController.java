@@ -5,6 +5,7 @@ import com.lhj.dto.OrderDTO;
 import com.lhj.enums.ResultEnum;
 import com.lhj.exception.SellException;
 import com.lhj.form.OrderForm;
+import com.lhj.service.BuyerService;
 import com.lhj.service.OrderService;
 import com.lhj.utils.ResultVoUtil;
 import com.lhj.vo.ResultVo;
@@ -33,6 +34,8 @@ import java.util.Map;
 public class BuyerOrderController {
     @Autowired
     private OrderService orderService;
+    @Autowired
+    private BuyerService buyerService;
 
     /**
      * 创建订单
@@ -48,7 +51,7 @@ public class BuyerOrderController {
         //判断转换后购物车是否空了
         if(CollectionUtils.isEmpty(orderDTO.getOrderDetailList())){
             log.error("【创建订单】购物车不能为空");
-            throw new SellException(ResultEnum.cart_empty);
+            throw new SellException(ResultEnum.CART_EMPTY);
         }
         OrderDTO createResult = orderService.create(orderDTO);
         Map<String,String> map = new HashMap<>(16);
@@ -80,8 +83,8 @@ public class BuyerOrderController {
     public ResultVo<OrderDTO> detail(@RequestParam("openid")String openid,
                                      @RequestParam("orderId")String orderId){
         //todo 不安全的做法(越权访问,任何人随便传个orderId都可以调此接口,这是不安全的)
-        OrderDTO orderDTO = orderService.findOne(orderId);
-        return ResultVoUtil.success(orderDTO);
+        OrderDTO orderOne = buyerService.findOrderOne(openid, orderId);
+        return ResultVoUtil.success(orderOne);
     }
 
     /**
@@ -90,9 +93,7 @@ public class BuyerOrderController {
     @PostMapping("/cancel")
     public ResultVo cancel(@RequestParam("openid")String openid,
                            @RequestParam("orderId")String orderId){
-        //todo 不安全的做法,改进
-        OrderDTO orderDTO = orderService.findOne(orderId);
-        orderService.cancel(orderDTO);
+        buyerService.cancelOrder(openid,orderId);
         return ResultVoUtil.success();
     }
 }
